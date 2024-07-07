@@ -2,7 +2,7 @@ from typing import Any
 from django.shortcuts import render
 from django.views.generic import View, TemplateView
 from django.views.generic.list import ListView
-from .models import Event, Sermon,VideoSermon
+from .models import Event, Sermon,VideoSermon, Contact
 
 
 class HomeView(TemplateView):
@@ -45,5 +45,8 @@ class ContactView(View):
         email = request.POST.get('email')
         subject = request.POST.get('subject')
         message = request.POST.get('message')
+        new_contact = Contact(name=name, email=email, subject=subject, message=message)
+        new_contact.full_clean()
+        new_contact.save()
         # send email
         return render(request, 'main/contact.html')

@@ -214,7 +214,8 @@ input[type="submit"] {
 }
 
 button[disabled],
-input[disabled] {
+input[disabled],
+option[disabled] {
   cursor: default;
 }
 
@@ -1858,6 +1859,7 @@ form .hero .slides input[type="reset"]:after {
 
 .page-head {
   background-size: cover;
+  background-position: center;
   padding: 50px;
   text-align: center;
 }
@@ -2178,7 +2180,9 @@ ul.bullet li a:hover {
 }
 
 .contact-form input:not([type="submit"]),
-.contact-form textarea {
+.contact-form textarea,
+.contact-form select,
+.contact-form select option {
   margin-bottom: 20px;
   width: 100%;
   background: #292932;

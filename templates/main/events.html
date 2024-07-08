@@ -5,9 +5,10 @@
 {% endblock title %}
 
 {% block content %}
-<div class="page-head" data-bg-image="images/page-head-1.jpg">
+{% load static %}
+<div class="page-head" data-bg-image="{% static 'images/event.jpeg' %}">
 	<div class="container">
-		<h2 class="page-title">Seremons</h2>
+		<h2 class="page-title">Events</h2>
 	</div>
 </div>
 
@@ -27,7 +28,7 @@
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque recusandae rerum alias
 								veniam nisi repellat, libero molestias praesentium dolore harum quisquam quam dolorum
 								repudiandae et, earum doloremque repellendus fugiat ab.</p>
-							<a href="#" class="button">Join to this event</a>
+							<a href="{% url 'register_event' %}" class="button">Join to this event</a>
 							<a href="#" class="button secondary">Ask a question</a>
 						</li>
 						<li>
@@ -75,7 +76,7 @@
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae error officia, vero quo
 								ducimus maiores, itaque consequatur vitae tempore nulla beatae quis. Asperiores
 								perspiciatis facere harum ducimus doloribus. Neque, accusamus?</p>
-							<a href="#" class="button">Join to this event</a>
+							<a href="{% url 'register_event' %}" class="button">Join to this event</a>
 							<a href="#" class="button secondary">Ask a question</a>
 						</li>
 						<li>

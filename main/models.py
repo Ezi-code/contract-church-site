@@ -60,6 +60,7 @@ class AudioSermon(models.Model):
 
 
 class NewsLetterSubscription(models.Model):
+    name = models.CharField(max_length=100, blank=True, null=True)
     email = models.EmailField()
     date = models.DateTimeField(auto_now_add=True)
 

@@ -1,8 +1,17 @@
 from typing import Any
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from django.urls import reverse_lazy
 from django.views.generic import View, TemplateView
 from django.views.generic.list import ListView
-from .models import Event, Sermon, VideoSermon, Contact, EventRegistration
+from django.views.generic.edit import CreateView
+from .models import (
+    Event,
+    Sermon,
+    VideoSermon,
+    Contact,
+    EventRegistration,
+    NewsLetterSubscription,
+)
 
 
 class HomeView(TemplateView):
@@ -72,3 +81,9 @@ class RegisterEventView(View):
         new_contact.save()
         # send email
         return render(request, "main/register_event.html")
+
+
+class SubsribeNewsLetterView(CreateView):
+    model = NewsLetterSubscription
+    success_url = reverse_lazy("home_page")
+    fields = ["name", "email"]
